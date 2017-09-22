@@ -12,11 +12,11 @@ app.listen(PORT, () => {
 app.use('/api', apiRouter);
 app.use('/static', express.static(__dirname + '/static'));
 
-// To keep frontend awake
+// To keep frontend awake every 5 minutes
 setInterval(() => {
   axios.get('http://basketballreasons.io').then(() => {
     console.log('Kept frontend alive');
   }).catch(() => {
   	console.log('frontend is down');
-  })
-})
+  });
+}, 300000);
