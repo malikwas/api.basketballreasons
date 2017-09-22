@@ -16,5 +16,7 @@ app.use('/static', express.static(__dirname + '/static'));
 setInterval(() => {
   axios.get('http://basketballreasons.io').then(() => {
     console.log('Kept frontend alive');
+  }).catch(() => {
+  	console.log('frontend is down');
   })
 })
